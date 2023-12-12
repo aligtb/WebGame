@@ -26,4 +26,13 @@ body {
   .hidden {
     display: none;
   }
-  
+
+.game-selection {
+  text-align: center;
+}
+.game-over {
+  text-align: center;
+}
+.hidden {
+  display: none;
+}
