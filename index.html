@@ -4,23 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Game Selection</title>
+<!-- Include Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div id="game-selection" class="game-selection">
-  <h2>Select a Game</h2>
-  <button onclick="loadGame('tic-tac-toe')">Tic-Tac-Toe</button>
-  <!-- Add more buttons for additional games here -->
-</div>
-<div id="tic-tac-toe" class="game hidden">
-  <div id="player-selection" class="player-selection">
-    <button onclick="startGame(1)">One Player</button>
-    <button onclick="startGame(2)">Two Players</button>
+<div class="container mt-5">
+  <div id="game-selection" class="text-center">
+    <h2>Select a Game</h2>
+    <button class="btn btn-primary mt-3" onclick="loadGame('tic-tac-toe')">Tic-Tac-Toe</button>
+    <!-- Add more buttons for additional games here -->
   </div>
-  <div id="game-board" class="game-board hidden"></div>
-  <div id="game-over" class="game-over hidden">
-    <p id="winner-announcement"></p>
-    <button onclick="resetGame()">Play Again</button>
+  <div id="tic-tac-toe" class="game hidden">
+    <div id="player-selection" class="text-center mt-3">
+      <button class="btn btn-info" onclick="startGame(1)">One Player</button>
+      <button class="btn btn-info" onclick="startGame(2)">Two Players</button>
+    </div>
+    <div id="game-board" class="game-board hidden"></div>
+    <div id="game-over" class="game-over hidden">
+      <p id="winner-announcement" class="h3"></p>
+      <button class="btn btn-warning" onclick="resetGame()">Play Again</button>
+    </div>
   </div>
 </div>
 <script src="script.js"></script>
