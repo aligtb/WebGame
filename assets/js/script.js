@@ -17,6 +17,8 @@ function drawBoard() {
   });
 }
 
+
+// Modify the makeMove function to call checkWinner and endGame when appropriate
 function makeMove(index) {
   if (board[index] !== '') return;
   board[index] = currentPlayer;
@@ -34,3 +36,31 @@ function aiMove() {
   currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
   drawBoard();
 }
+
+
+function loadGame(gameId) {
+  document.getElementById('game-selection').classList.add('hidden');
+  document.getElementById(gameId).classList.remove('hidden');
+}
+
+function checkWinner() {
+  // Add your logic to check for a winner and return 'X', 'O', or 'Draw'
+}
+
+function endGame(winner) {
+  let winnerText = winner === 'Draw' ? 'It\'s a draw!' : `Player ${winner} wins!`;
+  document.getElementById('winner-announcement').textContent = winnerText;
+  document.getElementById('game-board').classList.add('hidden');
+  document.getElementById('game-over').classList.remove('hidden');
+}
+
+function resetGame() {
+  board = ['', '', '', '', '', '', '', '', ''];
+  currentPlayer = 'X';
+  document.getElementById('game-over').classList.add('hidden');
+  document.getElementById('player-selection').classList.remove('hidden');
+  drawBoard();
+}
+
+
+
