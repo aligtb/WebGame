@@ -43,9 +43,35 @@ function loadGame(gameId) {
   document.getElementById(gameId).classList.remove('hidden');
 }
 
-function checkWinner() {
-  // Add your logic to check for a winner and return 'X', 'O', or 'Draw'
+function checkWinner(board) {
+  // define the winning combinations
+  const lines = [
+    [0, 1, 2], // first row
+    [3, 4, 5], // second row
+    [6, 7, 8], // third row
+    [0, 3, 6], // first column
+    [1, 4, 7], // second column
+    [2, 5, 8], // third column
+    [0, 4, 8], // first diagonal
+    [2, 4, 6], // second diagonal
+  ];
+
+  // loop through the lines and check if any of them has the same symbol
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i]; // get the indices of the line
+    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+      return board[a]; // return the symbol of the winner
+    }
+  }
+
+  // check if the board is full
+  if (board.every(cell => cell !== '')) {
+    return 'Draw'; // return 'Draw' if no empty cells
+  }
+
+  return null; // return null if no winner and not full
 }
+
 
 function endGame(winner) {
   let winnerText = winner === 'Draw' ? 'It\'s a draw!' : `Player ${winner} wins!`;
