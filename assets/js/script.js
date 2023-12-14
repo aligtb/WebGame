@@ -20,7 +20,7 @@ function drawBoard() {
 
 // Modify the makeMove function to call checkWinner and endGame when appropriate
 function makeMove(index) {
-  if (board[index] !== '') return;
+  if (board[index] !== '') endGame(checkWinner(board));
   board[index] = currentPlayer;
   currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
   drawBoard();
